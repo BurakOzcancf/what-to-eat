@@ -8,27 +8,38 @@ import Category from './Category';
 const Main = () => {
     const [foods, setFoods] = useState(null);
     const [tags, setTags] = useState("");
+    const [search, setSearch] = useState("")
     const [title, setTitle] = useState("Our Picks");
     const baseURL = "https://api.spoonacular.com/recipes/"
     useEffect(() => {
-        axios
+        if (search) {
+            axios
+            .get(`${baseURL}complexSearch?query=${search}&apiKey=${process.env.REACT_APP_API}&number=12`)
+            .then((response) => {
+                setFoods(response.data.results);
+            });
+        } else {
+            axios
             .get(`${baseURL}random?apiKey=${process.env.REACT_APP_API}&number=12`)
             .then((response) => {
                 setFoods(response.data.recipes);
             });
-    }, [tags]);
+        }
+    }, [tags,search]);
     const data = {
         foods,
         baseURL,
         tags,
-        title
+        title,
     }
     console.log(tags)
+    console.log(foods)
+    console.log(search)
     return (
         <MainContext.Provider value={data}>
             <a className="absolute text-center w-full top-24 z-10 text-6xl text-white font-Dancing" href="/">what to EAT?</a>
             <div className='h-96 bg-home-img bg-bottom bg-cover bg-no-repeat'></div>
-            
+            <input value={search} onChange={(e)=>setSearch(e.target.value)} placeholder="Let's find..." className='absolute w-60 rounded-xl px-2 py-1 top-40 left-1/2 -translate-x-1/2' type="text" />
             <Router>
                 <div className="grid lg:grid-cols-4 grid-cols-2 gap-2 justify-center h-96 p-5 text-white text-lg">
                     <Link
