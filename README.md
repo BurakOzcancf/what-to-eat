@@ -27,6 +27,7 @@ Users should be able to:
 
 - Filter the food according to category
 - Users should be able to click on food to see more detailed information on a separate page
+- Search food
 
 ### Links
 
@@ -50,6 +51,7 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - CSS Grid
+- Form
 
 ### What I learned
 
