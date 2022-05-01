@@ -2,6 +2,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}",],
   theme: {
     extend: {
+      colors: {
+        favicon: "#DD8888"
+      },
       fontFamily: {
         'Dancing': "Dancing Script, cursive",
         'Poppins': "Poppins, sans-serif;"
