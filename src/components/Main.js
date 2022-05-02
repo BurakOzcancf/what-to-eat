@@ -32,12 +32,11 @@ const Main = () => {
         baseURL,
         tags,
         title,
+        setValue,
+        setSearch,
+        search
     }
-    function handleSubmit(e) {
-        e.preventDefault()
-        setValue(search)
-        setSearch("")
-    }
+    
     console.log(tags)
     console.log(foods)
     console.log(search)
@@ -45,10 +44,7 @@ const Main = () => {
         <MainContext.Provider value={data}>
             <a className="absolute text-center w-full top-24 z-10 text-6xl text-white font-Dancing" href="/">what to EAT?</a>
             <div className='h-96 bg-home-bg bg-bottom bg-cover bg-no-repeat'></div>
-            <form onSubmit={handleSubmit} className='absolute w-80 top-40 left-1/2 -translate-x-1/2'>
-                <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Let's find what to" className='w-60 rounded-xl px-2 py-1' type="text" />
-                <input type='submit' value='Eat' className='bg-favicon font-Dancing ml-1 rounded-xl w-10 px-2 py-1 text-white' />
-            </form>
+            
             <Router>
                 <div className="grid lg:grid-cols-4 grid-cols-2 gap-2 justify-center h-96 p-5 text-white text-lg">
                     <Link
