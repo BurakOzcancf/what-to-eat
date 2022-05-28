@@ -5,6 +5,7 @@ import { MainContext } from "./context";
 import Foods from "./Foods";
 import FoodsDetails from "./FoodsDetails";
 import Category from "./Category";
+import defaulProfile from "./what-to-eat.PNG";
 const Main = () => {
   const [foods, setFoods] = useState(null);
   const [tags, setTags] = useState("");
@@ -37,6 +38,7 @@ const Main = () => {
     setValue,
     setSearch,
     search,
+    defaulProfile,
   };
 
   console.log(tags);

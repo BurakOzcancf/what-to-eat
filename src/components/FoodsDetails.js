@@ -4,7 +4,7 @@ import { MainContext } from "./context";
 import { useNavigate, useParams } from "react-router-dom";
 
 const FoodsDetails = () => {
-  const { baseURL } = useContext(MainContext);
+  const { baseURL, defaulProfile } = useContext(MainContext);
   const params = useParams();
   const [food, setFood] = useState(null);
   let navigate = useNavigate();
@@ -32,7 +32,7 @@ const FoodsDetails = () => {
         <div className="p-10 max-w-5xl m-auto">
           <img
             className="m-auto rounded-xl"
-            src={food.image}
+            src={food.image ? food.image : defaulProfile}
             alt={food.image}
           />
           <h2 className="pt-10 pb-4 text-3xl text-center font-semibold">
